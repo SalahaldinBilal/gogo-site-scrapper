@@ -1,10 +1,10 @@
 {
   "name": "gogo-site-scrapper",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "An anime scrapper for GOGOAnime",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "repository": "https://github.com/iAverages/repo",
+  "repository": "https://github.com/SalahaldinBilal/gogo-site-scrapper",
   "scripts": {
     "start": "node dist/app.ts",
     "dev": "tsnd --inspect=9292 --respawn --transpile-only ./source/dist.ts",
