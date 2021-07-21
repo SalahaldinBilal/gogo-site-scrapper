@@ -1,5 +1,6 @@
 import fetch from 'node-fetch';
-const jsdom = require("jsdom");
+
+import { JSDOM } from 'jsdom'
 
 export default class GogoHttp {
   baseUrl: string;
@@ -11,7 +12,7 @@ export default class GogoHttp {
   fetchPage(url: string, callback: (doc: HTMLDocument, url: string) => void) {
     fetch(url)
       .then(res => res.text())
-      .then(html => callback(new jsdom.JSDOM(html).window.document, url))
+      .then(html => callback(new JSDOM(html).window.document, url))
   }
 
   getAnimeInfoPage(name: string, callback: (doc: HTMLDocument, url: string) => void) {
