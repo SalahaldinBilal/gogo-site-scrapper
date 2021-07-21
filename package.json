@@ -1,0 +1,29 @@
+{
+  "name": "anime-scrapper",
+  "version": "0.1.0",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "start": "node dist/app.ts",
+    "dev": "tsnd --inspect=9292 --respawn --transpile-only ./source/dist.ts",
+    "build": "tsc",
+    "prepublish": "npm run build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^16.4.0",
+    "@types/node-fetch": "^2.5.11",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.3.5"
+  },
+  "dependencies": {
+    "bufferutil": "^4.0.3",
+    "canvas": "^2.8.0",
+    "jsdom": "^16.6.0",
+    "node-fetch": "^2.6.1",
+    "utf-8-validate": "^5.0.5"
+  }
+}
