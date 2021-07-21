@@ -1,9 +1,10 @@
 {
-  "name": "anime-scrapper",
-  "version": "0.1.0",
-  "description": "",
+  "name": "gogo-site-scrapper",
+  "version": "0.1.1",
+  "description": "An anime scrapper for GOGOAnime",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "repository": "https://github.com/iAverages/repo",
   "scripts": {
     "start": "node dist/app.ts",
     "dev": "tsnd --inspect=9292 --respawn --transpile-only ./source/dist.ts",
@@ -12,7 +13,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@types/node": "^16.4.0",
     "@types/node-fetch": "^2.5.11",
