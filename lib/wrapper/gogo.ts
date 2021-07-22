@@ -10,13 +10,13 @@ export default class Gogo {
   
   constructor(baseUrl = 'https://gogoanime.pe') {
     this.baseUrl = baseUrl;
-    this.http = new GogoHttp();
-    this.parser = new GogoParser();
+    this.http = new GogoHttp(baseUrl);
+    this.parser = new GogoParser(baseUrl);
   }
 
   public async searchAnime(query: string): Promise<SearchResult[]> {
     const searchPage = await this.http.getSearchPage(query);
-    return searchPage.document && this.parser.getSearchResults(searchPage.document).map(result => new SearchResult(result));
+    return searchPage.document && this.parser.getSearchResults(searchPage.document).map(result => new SearchResult(this, result));
   }
 
 }
