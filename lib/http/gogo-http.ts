@@ -6,7 +6,7 @@ import GogoAPIError from './api-error';
 export default class GogoHttp {
   private baseUrl: string;
 
-  constructor(baseUrl = 'https://gogoanime.pe') {
+  constructor(baseUrl: string) {
     this.baseUrl = baseUrl;
   }
 

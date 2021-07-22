@@ -8,7 +8,7 @@ export default class Gogo {
   http: GogoHttp;
   parser: GogoParser;
   
-  constructor(baseUrl = 'https://gogoanime.pe') {
+  constructor(baseUrl: string) {
     this.baseUrl = baseUrl;
     this.http = new GogoHttp(baseUrl);
     this.parser = new GogoParser(baseUrl);
