@@ -13,7 +13,7 @@ npm install gogo-site-scrapper
 ## Example
 
 ```typescript
-import { GogoHttp, GogoParser } from 'gogo-anime-scrapper'
+import { GogoHttp, GogoParser } from 'gogo-site-scrapper'
 
 let http = new GogoHttp();
 let parser = new GogoParser();
