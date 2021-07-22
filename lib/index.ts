@@ -1,15 +1,23 @@
+import Gogo from "./wrapper/gogo";
 import GogoHttp from "./http/gogo-http";
 import GogoParser from "./parsers/gogo-parser";
 import { AnimeInfo } from "./types/anime-info";
 import { EpisodeInfo } from "./types/episode-info";
 import { PlayerInfo } from "./types/player-info";
-import { SearchResult } from "./types/search-result";
+import SearchResult from "./classes/search-result";
+import Anime from "./classes/anime";
+import Episode from "./classes/episode";
 
 export {
+  Gogo,
   GogoHttp,
   GogoParser,
-  SearchResult,
   PlayerInfo,
   EpisodeInfo,
-  AnimeInfo
+  AnimeInfo,
+  SearchResult,
+  Anime,
+  Episode
 }
+
+export default Gogo;

@@ -1,5 +1,5 @@
 import fetch from 'node-fetch';
-import { JSDOM } from 'jsdom'
+import { JSDOM } from 'jsdom';
 import { RequestReturn } from '../types/request-return';
 
 export default class GogoHttp {
