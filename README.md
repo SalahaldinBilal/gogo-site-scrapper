@@ -4,7 +4,7 @@ GOGO Site Scrapper is a scrapping library for the site [GOGO Anime](https://gogo
 
 ## Installation
 
-Use the package manager [npm](https://pip.pypa.io/en/stable/) to install GOGO Site Scrapper.
+Use the package manager [npm](https://nodejs.org/en/download/) (Installed with Node) to install GOGO Site Scrapper.
 
 ```bash
 npm install gogo-site-scrapper
