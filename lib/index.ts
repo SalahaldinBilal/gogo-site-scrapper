@@ -9,6 +9,7 @@ import Anime from "./classes/anime";
 import Episode from "./classes/episode";
 
 export {
+  Gogo,
   GogoHttp,
   GogoParser,
   PlayerInfo,
