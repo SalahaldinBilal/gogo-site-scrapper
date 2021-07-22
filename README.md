@@ -15,7 +15,7 @@ npm install gogo-site-scrapper
 ```javascript
 const { Gogo } = require('gogo-site-scrapper');
 
-const gogo = new Gogo();
+const gogo = new Gogo("https://gogoanime.pe"); // Replace if domain changes
 
 
 // Search anime with keyword "slime"

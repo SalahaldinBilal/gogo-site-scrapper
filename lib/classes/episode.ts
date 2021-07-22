@@ -1,17 +1,18 @@
 import GogoHttp from "../http/gogo-http";
 import GogoParser from "../parsers/gogo-parser";
 import { EpisodeInfo } from "../types/episode-info";
+import Gogo from "../wrapper/gogo";
 import Anime from "./anime";
-
-const http = new GogoHttp();
-const parser = new GogoParser();
 
 export default class Episode implements EpisodeInfo {
   anime: Anime;
   number: number;
   url: string;
 
-  constructor(anime: Anime, data: EpisodeInfo) {
+  private _gogowrap: Gogo;
+
+  constructor(gogowrap: Gogo, anime: Anime, data: EpisodeInfo) {
+    this._gogowrap = gogowrap;
     this.anime = anime;
     this.number = data.number;
     this.url = data.url;
@@ -22,7 +23,7 @@ export default class Episode implements EpisodeInfo {
   }
 
   public async getPlayers() {
-    const playerPage = await http.fetchPage(this.url);
-    return playerPage.document && parser.getEpisodePlayers(playerPage.document);
+    const playerPage = await this._gogowrap.http.fetchPage(this.url);
+    return playerPage.document && this._gogowrap.parser.getEpisodePlayers(playerPage.document);
   }
 }
