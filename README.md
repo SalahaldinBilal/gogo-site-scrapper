@@ -12,17 +12,16 @@ npm install gogo-site-scrapper
 
 ## Example
 
-```javascript
+```typescript
 import { GogoHttp, GogoParser } from 'gogo-anime-scrapper'
 
 let http = new GogoHttp();
 let parser = new GogoParser();
 
 //return the search page with keyword "slime"
-http.getSearchPage("slime", doc => {
-  //parse the page to get the results and print them
-  console.log(parser.getSearchResults(doc))
-})
+//return a promise with an object that holds the document and the request URL
+//parse the search results
+http.getSearchPage("slime").then(ret => console.log(parser.getSearchResults(ret.document)))
 ```
 
 ## License

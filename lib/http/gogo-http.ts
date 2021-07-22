@@ -1,38 +1,37 @@
 import fetch from 'node-fetch';
-
 import { JSDOM } from 'jsdom'
+import { RequestReturn } from '../types/request-return';
 
 export default class GogoHttp {
-  baseUrl: string;
+  private baseUrl: string;
 
   constructor(baseUrl = 'https://gogoanime.pe') {
     this.baseUrl = baseUrl;
   }
 
-  fetchPage(url: string, callback: (doc: HTMLDocument, url: string) => void) {
-    fetch(url)
+  setBaseUrl(url: string) {
+    this.baseUrl = url;
+  }
+
+  fetchPage(url: string): Promise<RequestReturn> {
+    return fetch(url)
       .then(res => res.text())
-      .then(html => callback(new JSDOM(html).window.document, url))
+      .then(html => ({
+        document: new JSDOM(html).window.document,
+        url: url
+      } as RequestReturn))
   }
 
-  getAnimeInfoPage(name: string, callback: (doc: HTMLDocument, url: string) => void) {
-    this.fetchPage(
-      `${this.baseUrl}/category/${name.toLowerCase().replace(/\s/g, '-')}`,
-      callback
-    )
+  getAnimeInfoPage(name: string): Promise<RequestReturn> {
+    return this.fetchPage(`${this.baseUrl}/category/${name.toLowerCase().replace(/\s/g, '-')}`)
   }
 
-  getEpisodeList(start: number, end: number, id: number, callback: (doc: HTMLDocument, url: string) => void) {
-    this.fetchPage(
-      `https://ajax.gogo-load.com/ajax/load-list-episode?ep_start=${start}&ep_end=${end}&id=${id}`,
-      callback
-    )
+  getEpisodeList(start: number, end: number, id: number): Promise<RequestReturn> {
+    return this.fetchPage(`https://ajax.gogo-load.com/ajax/load-list-episode?ep_start=${start}&ep_end=${end}&id=${id}`)
   }
 
-  getSearchPage(filter: string, callback: (doc: HTMLDocument, url: string) => void) {
-    this.fetchPage(
-      `${this.baseUrl}/search.html?keyword=${filter}`,
-      callback
-    )
+  getSearchPage(filter: string): Promise<RequestReturn> {
+    return this.fetchPage(`${this.baseUrl}/search.html?keyword=${filter}`)
   }
+
 }

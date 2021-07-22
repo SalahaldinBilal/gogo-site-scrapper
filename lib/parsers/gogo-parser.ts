@@ -4,10 +4,14 @@ import { PlayerInfo } from "../types/player-info";
 import { SearchResult } from "../types/search-result";
 
 export default class GogoParser {
-  baseUrl: string;
+  private baseUrl: string;
 
   constructor(baseUrl = 'https://gogoanime.pe') {
     this.baseUrl = baseUrl;
+  }
+
+  setBaseUrl(url: string) {
+    this.baseUrl = url;
   }
 
   getAnimeInfo(animeInfoPageDocument: HTMLDocument): AnimeInfo {

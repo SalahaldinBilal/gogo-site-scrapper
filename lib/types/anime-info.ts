@@ -1,3 +1,5 @@
+import { EpisodeInfo } from "./episode-info";
+
 export interface AnimeInfo {
   id: number,
   coverImg: string,
@@ -7,5 +9,6 @@ export interface AnimeInfo {
   genres: Array<string>,
   released: Date,
   start: number,
-  end: number
+  end: number,
+  episodes?: Array<EpisodeInfo>
 }
