@@ -19,7 +19,7 @@ export default class GogoParser {
     let epRange = animeInfoPageDocument.getElementById("episode_page")?.querySelector("a")?.innerHTML as string;
 
     return {
-      id: +(animeInfoPageDocument.getElementById('movie_id') as HTMLInputElement)?.value,
+      id: +(animeInfoPageDocument.querySelector('#movie_id')?.getAttribute("value") as any),
       url: animeInfoPageDocument.querySelector('[rel="canonical"]')?.getAttribute('href'),
       coverImg: (infoElement.children[0] as HTMLImageElement).src,
       name: (infoElement.children[1] as HTMLHeadElement).innerHTML,

@@ -1,6 +1,6 @@
 {
   "name": "gogo-site-scrapper",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "An anime scrapper for GOGOAnime",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -15,18 +15,14 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "@types/jsdom": "^16.2.13",
     "@types/node": "^16.4.0",
     "@types/node-fetch": "^2.5.11",
     "ts-node-dev": "^1.1.8",
     "typescript": "^4.3.5"
   },
   "dependencies": {
-    "bufferutil": "^4.0.3",
-    "canvas": "^2.8.0",
-    "jsdom": "^16.6.0",
-    "node-fetch": "^2.6.1",
-    "utf-8-validate": "^5.0.5"
+    "linkedom": "git+https://github.com/WebReflection/linkedom.git",
+    "node-fetch": "^2.6.1"
   },
   "private": false
 }

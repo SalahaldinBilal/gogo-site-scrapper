@@ -1,7 +1,7 @@
 import fetch from 'node-fetch';
-import { JSDOM } from 'jsdom';
 import { RequestReturn } from '../types/request-return';
 import GogoAPIError from './api-error';
+import { parseHTML } from 'linkedom';
 
 export default class GogoHttp {
   private baseUrl: string;
@@ -21,7 +21,7 @@ export default class GogoHttp {
         throw new GogoAPIError(res.status, res.statusText);
       })
       .then(html => ({
-        document: new JSDOM(html).window.document,
+        document: parseHTML(html).window.document,
         url: url
       } as RequestReturn));
   }
