@@ -1,7 +1,10 @@
-import fetch from 'node-fetch';
+import nodeFetch from 'node-fetch';
 import { RequestReturn } from '../types/request-return';
 import GogoAPIError from './api-error';
-import { parseHTML } from 'linkedom';
+import { DOMParser as LDomParser } from 'linkedom';
+
+let fet: any = typeof fetch === "undefined" ? nodeFetch : fetch;
+const domPar: any = typeof DOMParser === "undefined" ? LDomParser : DOMParser;
 
 export default class GogoHttp {
   private baseUrl: string;
@@ -15,13 +18,13 @@ export default class GogoHttp {
   }
 
   fetchPage(url: string): Promise<RequestReturn> {
-    return fetch(url)
-      .then(res => {
+    return fet(url)
+      .then((res: Response) => {
         if (res.ok) return res.text();
         throw new GogoAPIError(res.status, res.statusText);
       })
-      .then(html => ({
-        document: parseHTML(html).window.document,
+      .then((html: string) => ({
+        document: (new domPar).parseFromString(html, 'text/html') as any,
         url: url
       } as RequestReturn));
   }
