@@ -22,12 +22,13 @@ export default class GogoParser {
       id: +(animeInfoPageDocument.querySelector('#movie_id')?.getAttribute("value") as any),
       url: animeInfoPageDocument.querySelector('[rel="canonical"]')?.getAttribute('href'),
       coverImg: (infoElement.children[0] as HTMLImageElement).src,
-      name: (infoElement.children[1] as HTMLHeadElement).innerHTML,
+      name: (infoElement.children[1] as HTMLHeadElement).innerHTML.replace(" (Dub)", ""),
       summary: (infoElement.children[4] as HTMLParagraphElement).childNodes[1].textContent,
       genres: Array.from(infoElement.children[5].querySelectorAll("a")).map(x => x.title),
-      released: new Date((infoElement.children[6] as any).childNodes[1].textContent),
+      released: (infoElement.children[6] as any).childNodes[1].textContent,
       start: +epRange[0].innerHTML?.split("-")[0],
-      end: +epRange[epRange.length - 1].innerHTML?.split("-")[1]
+      end: +epRange[epRange.length - 1].innerHTML?.split("-")[1],
+      type: (infoElement.children[1] as HTMLHeadElement).innerHTML.includes(" (Dub)") ? "dub" : "sub",
     } as AnimeInfo;
   }
 

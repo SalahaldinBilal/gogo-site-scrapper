@@ -12,10 +12,11 @@ export default class Anime implements AnimeInfo {
   name: string;
   summary: string;
   genres: string[];
-  released: Date;
+  released: number;
   start: number;
   end: number;
-  
+  type: "dub" | "sub";
+
   private _gogowrap: Gogo;
   private _episodes?: Episode[] | undefined;
 
@@ -30,6 +31,7 @@ export default class Anime implements AnimeInfo {
     this.released = data.released;
     this.start = data.start;
     this.end = data.end;
+    this.type = data.type;
   }
 
   public async getEpisodes(cache: boolean = true) {
@@ -47,7 +49,7 @@ export default class Anime implements AnimeInfo {
     const episodeList = await this._gogowrap.http.getEpisodeList(num, num, this.id);
     const parsedEpList = this._gogowrap.parser.getEpisodeListing(episodeList.document);
 
-    return parsedEpList.length? new Episode(this._gogowrap, this, parsedEpList[0]) : undefined;
+    return parsedEpList.length ? new Episode(this._gogowrap, this, parsedEpList[0]) : undefined;
   }
 
 }

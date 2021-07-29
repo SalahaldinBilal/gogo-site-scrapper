@@ -7,8 +7,9 @@ export interface AnimeInfo {
   name: string,
   summary: string,
   genres: Array<string>,
-  released: Date,
+  released: number,
   start: number,
   end: number,
+  type: "dub" | "sub",
   episodes?: Array<EpisodeInfo>
 }
