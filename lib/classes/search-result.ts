@@ -23,7 +23,7 @@ export default class SearchResult implements ISearchResult {
   }
 
   public async getData() {
-    const infoPage = await this._gogowrap.http.getAnimeInfoPage(this.name);
+    const infoPage = await this._gogowrap.http.getAnimeInfoPage(this.url.split("/")[this.url.split("/").length - 1]);
     return infoPage.document && new Anime(this._gogowrap, this._gogowrap.parser.getAnimeInfo(infoPage.document));
   }
 

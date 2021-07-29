@@ -16,7 +16,7 @@ export default class GogoParser {
 
   getAnimeInfo(animeInfoPageDocument: HTMLDocument): AnimeInfo {
     let infoElement = animeInfoPageDocument.querySelector('.anime_info_body_bg') as HTMLDivElement;
-    let epRange = animeInfoPageDocument.getElementById("episode_page")?.querySelector("a")?.innerHTML as string;
+    let epRange = animeInfoPageDocument.getElementById("episode_page")?.querySelectorAll("a") as NodeListOf<HTMLAnchorElement>;
 
     return {
       id: +(animeInfoPageDocument.querySelector('#movie_id')?.getAttribute("value") as any),
@@ -26,8 +26,8 @@ export default class GogoParser {
       summary: (infoElement.children[4] as HTMLParagraphElement).childNodes[1].textContent,
       genres: Array.from(infoElement.children[5].querySelectorAll("a")).map(x => x.title),
       released: new Date((infoElement.children[6] as any).childNodes[1].textContent),
-      start: +epRange?.split("-")[0],
-      end: +epRange?.split("-")[1]
+      start: +epRange[0].innerHTML?.split("-")[0],
+      end: +epRange[epRange.length - 1].innerHTML?.split("-")[1]
     } as AnimeInfo;
   }
 
