@@ -16,6 +16,7 @@ export default class Anime implements AnimeInfo {
   start: number;
   end: number;
   type: "dub" | "sub";
+  linkName: string;
 
   private _gogowrap: Gogo;
   private _episodes?: Episode[] | undefined;
@@ -32,6 +33,7 @@ export default class Anime implements AnimeInfo {
     this.start = data.start;
     this.end = data.end;
     this.type = data.type;
+    this.linkName = data.linkName;
   }
 
   public async getEpisodes(cache: boolean = true) {

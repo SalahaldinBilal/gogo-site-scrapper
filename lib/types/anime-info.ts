@@ -5,6 +5,7 @@ export interface AnimeInfo {
   coverImg: string,
   url: string,
   name: string,
+  linkName: string,
   summary: string,
   genres: Array<string>,
   released: number,
