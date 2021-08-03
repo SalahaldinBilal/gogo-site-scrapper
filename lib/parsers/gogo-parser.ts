@@ -57,7 +57,8 @@ export default class GogoParser {
       name: li.children[1].children[0]?.innerHTML?.replace(" (Dub)", "") as string,
       img: li.children[0].children[0].children[0]?.getAttribute("src") as string,
       released: +li.children[2]?.innerHTML?.replace(/\s/g, '').split(":")[1],
-      type: li.children[1].children[0]?.innerHTML?.includes(" (Dub)") ? "dub" : "sub"
+      type: li.children[1].children[0]?.innerHTML?.includes(" (Dub)") ? "dub" : "sub",
+      linkName: li.children[1].children[0]?.getAttribute("href")?.split("/")[li.children[1].children[0]?.getAttribute("href")?.split("/").length as number - 1] as string
     }))
   }
 }

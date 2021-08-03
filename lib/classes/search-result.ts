@@ -10,6 +10,7 @@ export default class SearchResult implements ISearchResult {
   img: string;
   released: number;
   type: "dub" | "sub";
+  linkName: string;
 
   private _gogowrap: Gogo;
 
@@ -20,6 +21,7 @@ export default class SearchResult implements ISearchResult {
     this.img = data.img;
     this.released = data.released;
     this.type = data.type;
+    this.linkName = data.linkName;
   }
 
   public async getData() {
