@@ -29,8 +29,8 @@ export default class GogoParser {
       summary: (infoElement.children[4] as HTMLParagraphElement)?.childNodes[1]?.textContent,
       genres: Array.from(infoElement.children[5].querySelectorAll("a"))?.map(x => x?.title),
       released: (infoElement.children[6] as any)?.childNodes[1]?.textContent,
-      start: +epRange[0].innerHTML?.split("-")[0],
-      end: +epRange[epRange.length - 1]?.innerHTML?.split("-")[1],
+      start: +epRange[0].innerHTML?.split("-")[0] ?? 0,
+      end: +epRange[epRange.length - 1]?.innerHTML?.split("-")[1] ?? 0,
       type: (infoElement.children[1] as HTMLHeadElement)?.innerHTML?.includes(" (Dub)") ? "dub" : "sub",
     } as AnimeInfo;
   }
