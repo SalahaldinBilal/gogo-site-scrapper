@@ -7,9 +7,11 @@ let fet: any = typeof fetch === "undefined" ? nodeFetch : fetch;
 
 export default class GogoHttp {
   private baseUrl: string;
+  private userCors: boolean;
 
-  constructor(baseUrl: string) {
+  constructor(baseUrl: string, userCors = false) {
     this.baseUrl = baseUrl;
+    this.userCors = userCors;
   }
 
   setBaseUrl(url: string) {
@@ -17,7 +19,7 @@ export default class GogoHttp {
   }
 
   fetchPage(url: string): Promise<RequestReturn> {
-    return fet(url)
+    return fet(url, { mode: this.userCors ? "cors" : "no-cors" })
       .then((res: Response) => {
         if (res.ok) return res.text();
         throw new GogoAPIError(res.status, res.statusText);
