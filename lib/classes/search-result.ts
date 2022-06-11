@@ -1,5 +1,3 @@
-import GogoHttp from "../http/gogo-http";
-import GogoParser from "../parsers/gogo-parser";
 import { SearchResult as ISearchResult } from "../types/search-result";
 import Gogo from "../wrapper/gogo";
 import Anime from "./anime";

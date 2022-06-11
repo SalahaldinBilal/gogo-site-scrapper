@@ -1,5 +1,3 @@
-import GogoHttp from "../http/gogo-http";
-import GogoParser from "../parsers/gogo-parser";
 import { EpisodeInfo } from "../types/episode-info";
 import Gogo from "../wrapper/gogo";
 import Anime from "./anime";
