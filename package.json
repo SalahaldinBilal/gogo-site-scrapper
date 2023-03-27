@@ -1,6 +1,6 @@
 {
   "name": "gogo-site-scrapper",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "An anime scrapper for GOGOAnime",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -21,7 +21,7 @@
     "typescript": "^4.3.5"
   },
   "dependencies": {
-    "linkedom": "git+https://github.com/SalahaldinBilal/linkedom.git",
+    "linkedom": "^0.14.25",
     "node-fetch": "^2.6.1"
   },
   "private": false
