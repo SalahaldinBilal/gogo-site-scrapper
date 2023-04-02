@@ -78,6 +78,6 @@ export default class GogoParser {
     }
 
     getAnimesPagesCount(animeListPageDocument: HTMLDocument): number {
-        return +animeListPageDocument.getElementsByClassName("pagination-list")[0].children.length;
+        return +animeListPageDocument.getElementsByClassName("pagination-list")[0]?.children.length ?? 1;
     }
 }
