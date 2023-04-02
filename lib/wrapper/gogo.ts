@@ -49,6 +49,6 @@ export default class Gogo {
             animes.push(...animesList);
         }
 
-        return animes;
+        return animes.map((a) => a.split("/").slice(2).join(""));
     }
 }
