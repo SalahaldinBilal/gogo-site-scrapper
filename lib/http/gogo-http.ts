@@ -42,4 +42,7 @@ export default class GogoHttp {
     return this.fetchPage(`${this.baseUrl}/search.html?keyword=${filter}`);
   }
 
+  getAnimesPage(letter: string, page: number): Promise<RequestReturn> {
+    return this.fetchPage(`${this.baseUrl}/anime-list-${letter}?page=${page}`);
+  }
 }
